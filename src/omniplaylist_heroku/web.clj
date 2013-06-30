@@ -10,8 +10,7 @@
             [ring.middleware.basic-authentication :as basic]
             [cemerick.drawbridge :as drawbridge]
             [environ.core :refer [env]]
-            [name.benjaminpeter.clj-pls  :as pls]
-            [omniplaylist.difm.page      :as difm-page]))
+            [omniplaylist-heroku.playlist :as playlist]))
 
 (defn- authenticated? [user pass]
   ;; heroku config:add REPL_USER=[...] REPL_PASSWORD=[...]
@@ -22,23 +21,11 @@
       (session/wrap-session)
       (basic/wrap-basic-authentication authenticated?)))
 
-(defn download-and-build-difm-playlist []
-  (let [difm-playlists (difm-page/all-streams-as-playlist)
-        result (new java.io.StringWriter)]
-    (pls/write! result {:files difm-playlists})
-    (shutdown-agents)
-    (str result)))
-
-(defn display-difm-playlists []
-  {:status 200
-   :headers {"Content-Type" "audio/x-scpls"}
-   :body (download-and-build-difm-playlist)})
-
 (defroutes app
   (ANY "/repl" {:as req}
        (drawbridge req))
   (GET "/" []
-       (display-difm-playlists))
+       (playlist/display-difm-playlists))
   (ANY "*" []
        (route/not-found (slurp (io/resource "404.html")))))
 
