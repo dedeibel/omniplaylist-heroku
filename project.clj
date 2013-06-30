@@ -20,5 +20,5 @@
   :min-lein-version "2.0.0"
   :plugins [[environ/environ.lein "0.2.1"]]
   :hooks [environ.leiningen.hooks]
-  :repositories { "local" ~(str (.toURI (java.io.File. "repo"))) }
+  :repositories { "local" "file:repo" }
   :profiles {:production {:env {:production true}}})
