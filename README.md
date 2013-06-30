@@ -2,7 +2,7 @@
 
 This is a heroku webapp using [omniplaylist (dilist)](https://github.com/dedeibel/dilist) to confortably supply a digitally imported [(di.fm)](http://di.fm/) playlist.
 
-[di.fm playlist](http://omniplaylist-heroku.herokuap.com)
+[di.fm playlist](http://limitless-shore-5721.herokuapp.com/)
 
 ## Usage
 
