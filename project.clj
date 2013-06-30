@@ -16,7 +16,7 @@
                  [environ "0.2.1"]
                  [com.cemerick/drawbridge "0.0.6"]
                  [org.ini4j/ini4j "0.5.2"]           ; java
-                 [omniplaylist/omniplaylist "0.1.0"]]
+                 [omniplaylist/omniplaylist "0.1.1"]]
   :min-lein-version "2.0.0"
   :plugins [[environ/environ.lein "0.2.1"]]
   :hooks [environ.leiningen.hooks]
