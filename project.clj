@@ -12,6 +12,7 @@
                  [com.fasterxml.jackson.dataformat/jackson-dataformat-smile "2.1.1"]
                  [enlive "1.1.1"]
                  [org.ini4j/ini4j "0.5.2"]           ; java
+                 [org.clojure/tools.logging "0.2.6"]
                  [org.apache.httpcomponents/httpclient "4.2.5"]
                  [compojure "1.1.1"]
                  [ring/ring-jetty-adapter "1.1.0"]
