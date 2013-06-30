@@ -1,9 +1,10 @@
 # omniplaylist-heroku
 
-Heroku webapp using omniplaylist (dilist) to confortably supply a di.fm
-playlist.
+This is a heroku webapp using [omniplaylist (dilist)](https://github.com/dedeibel/dilist) to confortably supply a digitally imported (di.fm) playlist.
 
-A [Heroku](http://www.heroku.com) web app using Compojure.
+[di.fm playlist](http://omniplaylist-heroku.herokuap.com)
+
+_(this is an unofficial app and not supported by the di.fm folks)_
 
 ## Usage
 
@@ -16,7 +17,6 @@ launch from the command line:
 It's live! Hit it with `curl`:
 
     $ curl http://omniplaylist-heroku.herokuap.com
-    ["Hello" :from Heroku]
 
 ## License
 
