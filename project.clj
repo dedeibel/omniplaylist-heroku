@@ -4,6 +4,7 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
+                 [omniplaylist/omniplaylist "0.1.1"]
                  ; TODO Had to add the following three to fix missing dependencies
                  ; which should not have been necessary though - need to look into that
                  [com.fasterxml.jackson.core/jackson-core "2.2.0"]
@@ -16,9 +17,9 @@
                  [environ "0.2.1"]
                  [com.cemerick/drawbridge "0.0.6"]
                  [org.ini4j/ini4j "0.5.2"]           ; java
-                 [omniplaylist/omniplaylist "0.1.1"]]
+                 ]
   :min-lein-version "2.0.0"
   :plugins [[environ/environ.lein "0.2.1"]]
   :hooks [environ.leiningen.hooks]
-  :repositories { "local" "file:repo" }
+  :repositories {"omnilocal" ~(str (.toURI (java.io.File. "repo")))}
   :profiles {:production {:env {:production true}}})
