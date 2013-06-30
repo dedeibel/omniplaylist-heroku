@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>environ</groupId>
+  <artifactId>environ</artifactId>
+  <version>0.2.1</version>
+  <name>environ</name>
+  <description>Library for managing environment settings</description>
+  <url>https://github.com/weavejester/environ</url>
+  <licenses>
+    <license>
+      <name>Eclipse Public License</name>
+      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:git:git://github.com/weavejester/environ.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/weavejester/environ.git</developerConnection>
+    <tag>0282b0bc0c31b396757b2fe586a94676b1847884</tag>
+    <url>https://github.com/weavejester/environ</url>
+  </scm>
+  <build>
+    <sourceDirectory>/Users/jim/Development/environ/src</sourceDirectory>
+    <testSourceDirectory>/Users/jim/Development/environ/test</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>/Users/jim/Development/environ/resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>/Users/jim/Development/environ/resources</directory>
+      </testResource>
+    </testResources>
+  </build>
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>http://repo1.maven.org/maven2</url>
+    </repository>
+    <repository>
+      <id>clojars</id>
+      <url>http://clojars.org/repo/</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>environ</groupId>
+      <artifactId>environ.core</artifactId>
+      <version>0.2.1</version>
+    </dependency>
+  </dependencies>
+</project>

@@ -9,10 +9,12 @@
             [ring.adapter.jetty :as jetty]
             [ring.middleware.basic-authentication :as basic]
             [cemerick.drawbridge :as drawbridge]
-            [environ.core :refer [env]]))
+            [environ.core :refer [env]]
+            [name.benjaminpeter.clj-pls  :as pls]
+            [omniplaylist.difm.page      :as difm-page]))
 
 (defn- authenticated? [user pass]
-  ;; TODO: heroku config:add REPL_USER=[...] REPL_PASSWORD=[...]
+  ;; heroku config:add REPL_USER=[...] REPL_PASSWORD=[...]
   (= [user pass] [(env :repl-user false) (env :repl-password false)]))
 
 (def ^:private drawbridge
@@ -20,13 +22,23 @@
       (session/wrap-session)
       (basic/wrap-basic-authentication authenticated?)))
 
+(defn download-and-build-difm-playlist []
+  (let [difm-playlists (difm-page/all-streams-as-playlist)
+        result (new java.io.StringWriter)]
+    (pls/write! result {:files difm-playlists})
+    (shutdown-agents)
+    (str result)))
+
+(defn display-difm-playlists []
+  {:status 200
+   :headers {"Content-Type" "audio/x-scpls"}
+   :body (download-and-build-difm-playlist)})
+
 (defroutes app
   (ANY "/repl" {:as req}
        (drawbridge req))
   (GET "/" []
-       {:status 200
-        :headers {"Content-Type" "text/plain"}
-        :body (pr-str ["Hello" :from 'Heroku])})
+       (display-difm-playlists))
   (ANY "*" []
        (route/not-found (slurp (io/resource "404.html")))))
 
@@ -40,7 +52,7 @@
 
 (defn -main [& [port]]
   (let [port (Integer. (or port (env :port) 5000))
-        ;; TODO: heroku config:add SESSION_SECRET=$RANDOM_16_CHARS
+        ;; heroku config:add SESSION_SECRET=$RANDOM_16_CHARS
         store (cookie/cookie-store {:key (env :session-secret)})]
     (jetty/run-jetty (-> #'app
                          ((if (env :production)

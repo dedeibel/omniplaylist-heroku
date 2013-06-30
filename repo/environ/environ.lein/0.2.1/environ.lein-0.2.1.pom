@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>environ</groupId>
+  <artifactId>environ.lein</artifactId>
+  <version>0.2.1</version>
+  <name>environ.lein</name>
+  <description>Leiningen plugin for Environ</description>
+  <url>https://github.com/weavejester/environ</url>
+  <licenses>
+    <license />
+  </licenses>
+  <build>
+    <sourceDirectory>/Users/jim/Development/environ/environ.lein/src</sourceDirectory>
+    <testSourceDirectory>/Users/jim/Development/environ/environ.lein/test</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>/Users/jim/Development/environ/environ.lein/resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>/Users/jim/Development/environ/environ.lein/resources</directory>
+      </testResource>
+    </testResources>
+  </build>
+  <repositories>
+    <repository>
+      <id>central</id>
+      <url>http://repo1.maven.org/maven2</url>
+    </repository>
+    <repository>
+      <id>clojars</id>
+      <url>http://clojars.org/repo/</url>
+    </repository>
+  </repositories>
+</project>
