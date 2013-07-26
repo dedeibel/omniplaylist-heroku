@@ -15,7 +15,9 @@
 
 (defn display-difm-playlists []
   {:status 200
-   :headers {"Content-Type" "audio/x-scpls"}
+   :headers {
+             "Content-Type" "audio/x-scpls"
+             "Content-Disposition" "attachment; filename=difm.pls"}
    :body (do
            (if (seq (memo/snapshot cached-playlist)) 
              (info "Answering request from cache")
