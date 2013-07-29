@@ -5,7 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/core.memoize "0.5.6"]
-                 [omniplaylist/omniplaylist "0.1.2"]
+                 [omniplaylist/omniplaylist "0.1.3"]
                  ; TODO Had to add the following 5 to fix missing dependencies
                  ; which should not have been necessary though - need to look into that
                  [com.fasterxml.jackson.core/jackson-core "2.2.0"]
